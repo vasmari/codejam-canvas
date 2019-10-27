@@ -6218,24 +6218,29 @@ const img32x32 = [
   ]
 ];
 function draw4x4 (arr) {
-  
+  let scale1 = canvas.height / 4; 
+  let scale2 = canvas.width / 4;
+
   for (let i = 0; i < arr.length; i++){
       for(let j = 0; j < arr[i].length; j++) {
           let boxColor = '#' + arr[i][j];
           ctx.fillStyle = boxColor;
-          ctx.fillRect(i*75, j*37, 75, 37);
+          ctx.fillRect(i*scale2, j*scale1, scale2, scale1);
       }
   }
   
 }
 
 function draw32x32 (arr) {
+  let scale1 = canvas.height / 32; 
+  let scale2 = canvas.width / 32;
+
 
   for (let i = 0; i < arr.length; i++){
       for(let j = 0; j < arr[i].length; j++) {
           let boxColor = 'rgba(' + arr[i][j][0] +','+arr[i][j][1]+','+arr[i][j][2]+','+arr[i][j][3];
           ctx.fillStyle = boxColor;
-          ctx.fillRect(i*10, j*5, 10, 5);
+          ctx.fillRect(i*scale2, j*scale1, scale2, scale1);
       }
   }
 
