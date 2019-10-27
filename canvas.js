@@ -6218,29 +6218,26 @@ const img32x32 = [
   ]
 ];
 function draw4x4 (arr) {
-  let scale1 = canvas.height / 4; 
-  let scale2 = canvas.width / 4;
+  let canvasScale = canvas.height / arr.length; 
 
   for (let i = 0; i < arr.length; i++){
       for(let j = 0; j < arr[i].length; j++) {
           let boxColor = '#' + arr[i][j];
           ctx.fillStyle = boxColor;
-          ctx.fillRect(i*scale2, j*scale1, scale2, scale1);
+          ctx.fillRect(i*canvasScale, j*canvasScale, canvasScale, canvasScale);
       }
   }
   
 }
 
 function draw32x32 (arr) {
-  let scale1 = canvas.height / 32; 
-  let scale2 = canvas.width / 32;
-
-
+  let canvasScale = canvas.height / arr.length; 
+  
   for (let i = 0; i < arr.length; i++){
       for(let j = 0; j < arr[i].length; j++) {
           let boxColor = 'rgba(' + arr[i][j][0] +','+arr[i][j][1]+','+arr[i][j][2]+','+arr[i][j][3];
           ctx.fillStyle = boxColor;
-          ctx.fillRect(i*scale2, j*scale1, scale2, scale1);
+          ctx.fillRect(i*canvasScale, j*canvasScale, canvasScale, canvasScale);
       }
   }
 
@@ -6261,10 +6258,10 @@ button32.addEventListener("click", () => {
 
 button256.addEventListener("click", () => {
   path = "./data/image.png";
-  updateImageCanvas();
+  renderImage();
 });
 
-function updateImageCanvas() {
+function renderImage() {
   let img = new Image();
   img.src = "./data/image.png";
   img.onload = function() {
